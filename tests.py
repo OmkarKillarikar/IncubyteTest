@@ -12,17 +12,21 @@ def test_empty():
 def test_single():
     assert add("1") == 1
     assert add("345") == 345
+    assert add("-345") is None
 
 
 def test_comma():
     assert add("3,2") == 5
+    assert add("-3,2") is None
     assert add("0,2") == 2
     assert add("0,2,-2,6,5,-10") is None
 
 
 def test_newline():
     assert add("3\n2") == 5
+    assert add("-3\n2") is None
     assert add("0\n2\n7") == 9
+    assert add("0\n2\n-7") is None
 
 
 def test_comma_newline():
