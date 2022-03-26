@@ -1,7 +1,7 @@
 import re
 
 delimiter_flag = "//"
-delimiters = ",|;"
+delimiters = ",|\n"
 
 
 def add(input_str):
