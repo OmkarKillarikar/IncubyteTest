@@ -17,7 +17,7 @@ def test_single():
 def test_comma():
     assert add("3,2") == 5
     assert add("0,2") == 2
-    assert add("0,2,2,6,5,-10") == 5
+    assert add("0,2,-2,6,5,-10") is None
 
 
 def test_newline():
@@ -33,3 +33,4 @@ def test_comma_newline():
 def test_custom_delimiter():
     assert add("//;\n1;2") == 3
     assert add("//?\n1?9?1") == 11
+    assert add("//?\n1?9?-1?-9") is None

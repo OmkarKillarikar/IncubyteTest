@@ -32,9 +32,19 @@ def array_addition(input_str, delis=None):
     else:
         numbers = input_str.split(delis)
     addition = 0
+    negative_present = False
     for n in numbers:
-        addition += int(n)
-    return addition
+        if int(n) < 0:
+            try:
+                negative_present = True
+                raise Exception("negatives not allowed: " + n)
+            except Exception as e:
+                print(e)
+        elif not negative_present:
+            addition += int(n)
+
+    if not negative_present:
+        return addition
 
 
 if __name__ == '__main__':
