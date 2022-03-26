@@ -16,20 +16,25 @@ def add(input_str):
 
             if not has_custom_delimiter and not has_delimiter:
                 return int(input_str)
+
             elif has_custom_delimiter:
                 custom_delimiter = input_str[2]
                 input_str = input_str[3:]
-                numbers = input_str.split(custom_delimiter)
-                addition = 0
-                for n in numbers:
-                    addition += int(n)
-                return addition
-            elif has_delimiter and not has_custom_delimiter:
-                numbers = re.split(delimiters, input_str)
-                addition = 0
-                for n in numbers:
-                    addition += int(n)
-                return addition
+                return array_addition(input_str, custom_delimiter)
+
+            elif has_delimiter:
+                return array_addition(input_str)
+
+
+def array_addition(input_str, delis=None):
+    if delis is None:
+        numbers = re.split(delimiters, input_str)
+    else:
+        numbers = input_str.split(delis)
+    addition = 0
+    for n in numbers:
+        addition += int(n)
+    return addition
 
 
 if __name__ == '__main__':

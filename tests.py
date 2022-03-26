@@ -17,7 +17,7 @@ def test_single():
 def test_comma():
     assert add("3,2") == 5
     assert add("0,2") == 2
-    assert add("0,2,2,6,5,10") == 25
+    assert add("0,2,2,6,5,-10") == 5
 
 
 def test_newline():
